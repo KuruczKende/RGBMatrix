@@ -1,0 +1,9 @@
+Manufacturer=CREE LED
+PartNumber=UHD111A-FKA-C3K23E1L3VG5ZB3Z3
+PartCategory=LED (Multiple)
+PackageCategory=Other
+PinCount=4
+Version=3.3
+Released=2023-01-09 04:08:32
+Downloaded=2025-11-23 13:20:41
+3D=Y

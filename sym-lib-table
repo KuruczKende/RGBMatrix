@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "LED")(type "KiCad")(uri "${KIPRJMOD}/UHD111A/KiCad/UHD111A-FKA-C3K23E1L3VG5ZB3Z3.kicad_sym")(options "")(descr ""))
+)

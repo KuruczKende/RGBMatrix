@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP UHD111A-FKA-C3K23E1L3VG5ZB3Z3
+D Red, Green, Blue (RGB) 620nm Red, 526nm Green, 467nm Blue LED Indication - Discrete 2V Red, 2.7V Green, 2.7V Blue 0404 (1010 Metric)
+K
+F https://downloads.cree-led.com/files/ds/h/HB-UHD111A-FKA.pdf
+$ENDCMP
+#
+#End Doc Library
