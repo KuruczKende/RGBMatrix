@@ -28442,7 +28442,7 @@
 				)
 			)
 		)
-		(property "Value" "R_Pack08"
+		(property "Value" "200Ohm"
 			(at 175.26 271.78 90)
 			(effects
 				(font
@@ -28915,7 +28915,7 @@
 				)
 			)
 		)
-		(property "Value" "R_Pack08"
+		(property "Value" "0Ohm"
 			(at 307.34 312.42 90)
 			(effects
 				(font
@@ -32885,7 +32885,7 @@
 				)
 			)
 		)
-		(property "Value" "R_Pack08"
+		(property "Value" "10kOhm"
 			(at 388.62 444.5 90)
 			(effects
 				(font
@@ -34103,7 +34103,7 @@
 				)
 			)
 		)
-		(property "Value" "R_Pack08"
+		(property "Value" "200Ohm"
 			(at 120.65 271.78 90)
 			(effects
 				(font
@@ -34969,7 +34969,7 @@
 				)
 			)
 		)
-		(property "Value" "R_Pack08"
+		(property "Value" "200Ohm"
 			(at 175.26 309.88 90)
 			(effects
 				(font
@@ -37594,7 +37594,7 @@
 				)
 			)
 		)
-		(property "Value" "R_Pack08"
+		(property "Value" "10kOhm"
 			(at 388.62 312.42 90)
 			(effects
 				(font
@@ -37956,7 +37956,7 @@
 				)
 			)
 		)
-		(property "Value" "R_Pack08"
+		(property "Value" "270Ohm"
 			(at 66.04 309.88 90)
 			(effects
 				(font
@@ -47200,7 +47200,7 @@
 				)
 			)
 		)
-		(property "Value" "R_Pack08"
+		(property "Value" "200Ohm"
 			(at 120.65 309.88 90)
 			(effects
 				(font
@@ -51161,7 +51161,7 @@
 				)
 			)
 		)
-		(property "Value" "R_Pack08"
+		(property "Value" "4.7kOhm"
 			(at 260.35 242.57 90)
 			(effects
 				(font
@@ -55293,7 +55293,7 @@
 				)
 			)
 		)
-		(property "Value" "R_Pack08"
+		(property "Value" "4.7kOhm"
 			(at 260.35 307.34 90)
 			(effects
 				(font
@@ -57635,7 +57635,7 @@
 				)
 			)
 		)
-		(property "Value" "R_Pack08"
+		(property "Value" "270Ohm"
 			(at 66.04 271.78 90)
 			(effects
 				(font
@@ -59106,7 +59106,7 @@
 				)
 			)
 		)
-		(property "Value" "R_Pack08"
+		(property "Value" "0Ohm"
 			(at 307.34 444.5 90)
 			(effects
 				(font
