@@ -2546,6 +2546,26 @@
 		)
 		(uuid "2ebcde82-1ef1-4457-94ee-2819c697d88f")
 	)
+	(text_box "Rakd át a trace-eket:\nShift1:\nA X\nB 13\nC 12\nD 11\nE 10\nF 9\nG 8\nH 7\nShift2:\nA X\nB 6\nC 5\nD 4\nE 3\nF 2\nG 1\nH X"
+		(exclude_from_sim no)
+		(at 187.96 257.81 0)
+		(size 25.4 50.8)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "41e01711-a76a-42c2-95ad-7f47633784c2")
+	)
 	(text_box "Break out board"
 		(exclude_from_sim no)
 		(at 189.23 405.13 0)
