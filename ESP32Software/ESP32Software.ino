@@ -2,7 +2,7 @@ extern "C" {
   #include "Disp.h"
 }
 // Sem18
-uint8_t const aaCRed[13][16] = {
+uint8_t const aaCRed[ROW_NUM][COL_NUM] = {
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   {0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,1},
   {0,1,1,1,0,1,1,1,1,0,1,0,0,1,0,1},
@@ -17,7 +17,7 @@ uint8_t const aaCRed[13][16] = {
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 };
-uint8_t const aaCGreen[13][16] = {
+uint8_t const aaCGreen[ROW_NUM][COL_NUM] = {
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   {0,0,0,1,0,0,0,0,1,1,1,1,1,1,1,1},
   {0,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1},
@@ -32,7 +32,7 @@ uint8_t const aaCGreen[13][16] = {
   {1,1,0,0,1,1,0,1,1,0,1,1,0,0,1,1},
   {1,1,0,0,1,1,0,0,0,0,1,1,1,1,1,1},
 };
-uint8_t const aaCBlue[13][16] = {
+uint8_t const aaCBlue[ROW_NUM][COL_NUM] = {
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   {0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,1},
   {0,1,1,1,0,1,1,1,1,0,1,0,0,1,0,1},
@@ -58,12 +58,15 @@ uint32_t last;
 void setup() {
   boDISP_Init();
   last=millis();
-  for(uint8_t i=0;i<16;i++){
-    for(uint8_t j=0;j<13;j++){
-      boDISP_SetColor(j, i, aaCRed[j][i],aaCGreen[j][i],aaCBlue[j][i]);
+  for(uint8_t i=0;i<COL_NUM;i++){
+    for(uint8_t j=0;j<ROW_NUM;j++){
+      uint8_t pwr = 3;
+      if(i<16) pwr = 1;
+      boDISP_SetColor(j, i, pwr * aaCRed[j][i],pwr * aaCGreen[j][i],pwr * aaCBlue[j][i]);
     }
   }
   delay(100);
+  gboBufferReady = true;
   boDISP_SendBuffer();
 }
 uint16_t n=0;
@@ -83,9 +86,9 @@ void loop() {
     // gboBufferReady = true;
   }
 
-  if(millis()>last+1000){
+  /*if(millis()>last+1000){
     last=millis();
     n++;
-    if(n>=16)n=0;
-  }
+    if(n>=COL_NUM)n=0;
+  }*/
 }

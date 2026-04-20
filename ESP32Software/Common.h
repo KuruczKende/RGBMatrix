@@ -5,7 +5,8 @@
 #include <string.h>
 
 
-#define COL_NUM 16
-#define BR_LVL 1
+#define COL_NUM (16)
+#define ROW_NUM (13)
+#define BR_LVL (3)
 
 #endif

@@ -29,7 +29,7 @@
 // Datatype to hold data of a column
 typedef uint32_t colorData[2];
 // row index to shift register pin index
-uint8_t const colorMap[3][13] = {
+uint8_t const colorMap[3][ROW_NUM] = {
   {SH_0B,SH_1G,SH_1F,SH_1E,SH_1D,SH_1C,SH_1B,SH_0H,SH_0G,SH_0F,SH_0E,SH_0D,SH_0C},//r
   {SH_0C,SH_0D,SH_0E,SH_0F,SH_0G,SH_0H,SH_1B,SH_1C,SH_1D,SH_1E,SH_1F,SH_1G,SH_0B},//g
   {SH_0C,SH_0D,SH_0E,SH_0F,SH_0G,SH_0H,SH_1B,SH_1C,SH_1D,SH_1E,SH_1F,SH_1G,SH_0B},//b
@@ -82,7 +82,7 @@ bool boDISP_Init(){
   dev_config.duty_cycle_pos   = 0;
   dev_config.cs_ena_posttrans = 0;
   dev_config.cs_ena_pretrans  = 0;
-  dev_config.clock_speed_hz   = 1000;
+  dev_config.clock_speed_hz   = 1;//Minimal clock speed
   dev_config.spics_io_num     = -1;
   dev_config.flags            = SPI_DEVICE_HALFDUPLEX;
   dev_config.queue_size       = 1;
@@ -108,8 +108,8 @@ bool boDISP_Init(){
   vClearBuffer();
   vDISP_SwitchBuffer();
   vClearBuffer();
-  boBufferSwitched = false;
-  boBufferReady = false;
+  gboBufferSwitched = false;
+  gboBufferReady = false;
   boDisplayRun = false;
 
   return true;
@@ -167,7 +167,7 @@ void vClearBuffer(){
   for(uint8_t j=0;j<BR_LVL;j++){
     for(uint8_t i=0;i<COL_NUM+1;i++) ledBufferChange[i+COL_NUM*j][0]  = 0x777777b7;
     for(uint8_t i=0;i<COL_NUM+1;i++) ledBufferChange[i+COL_NUM*j][1]  = 0x73777777;
-    boDISP_SetColumn(COL_NUM+COL_NUM*j);
+    boDISP_SetColumn(0,j);
   }
 }
 // Sends the first buffer (after that, the sendig is done by Callback)
@@ -175,6 +175,10 @@ bool boDISP_SendBuffer(){
   // Dont't send buffer if it's already running
   if(boDisplayRun == true){
     return false;
+  }
+  if(gboBufferReady == true){
+    gboBufferReady = false;
+    vDISP_SwitchBuffer();
   }
   bool boRet = (ESP_OK == spi_device_queue_trans(spi_hndl, &trans_desc, portMAX_DELAY));
   boDisplayRun = boRet;
@@ -194,7 +198,7 @@ static void vDISP_SwitchBuffer(){
   colorData* ledBufferTemp = ledBufferOut;
   ledBufferOut = ledBufferChange;
   ledBufferChange = ledBufferTemp;
-  boBufferSwitched = true;
+  gboBufferSwitched = true;
 }
 
 // Set column shift register data to HIGH
@@ -212,8 +216,8 @@ IRAM_ATTR void postCb(spi_transaction_t *trans){
     return;
   }
   // If the CPU finished the new buffer, switch between them
-  if(boBufferReady == true){
-    boBufferReady = false;
+  if(gboBufferReady == true){
+    gboBufferReady = false;
     vDISP_SwitchBuffer();
   }
   // Always set the output pointer to the output buffer
